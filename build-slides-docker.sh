@@ -2,13 +2,13 @@ set -e
 BUILD_DIR="gh-pages"
 REVEAL_DIR="asciidocs-slides"
 [ ! -d "./asciidocs-slides/revealjs" ] && source ./download-reveal.sh
-rm -rf -v $BUILD_DIR # else plantuml diagrams won't be rebuilt
+#rm -rf -v $BUILD_DIR # else plantuml diagrams won't be rebuilt
 cp -r -p -v $REVEAL_DIR $BUILD_DIR
 [ -d "./src" ] && cp -r -p -v src $BUILD_DIR
-
+echo $(pwd)
 echo "Rendering slides"
 docker run --rm \
-           -v ${PWD}/$BUILD_DIR:/documents \
+           -v ${PWD}/asciidocs-slides/$BUILD_DIR:/documents \
            asciidoctor/docker-asciidoctor:1.2.0 asciidoctor-revealjs \
            -r asciidoctor-diagram \
            -a icons=font \
@@ -19,7 +19,6 @@ docker run --rm \
            -a revealjs_slideNumber=c/t \
            -a revealjs_transition=slide \
            -a revealjs_hash=true \
-           -a sourcedir=src/main/java \
            -b revealjs \
            '*.adoc'
 echo "build completed ..."
