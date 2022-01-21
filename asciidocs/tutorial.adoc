@@ -1,0 +1,96 @@
+= Qute
+
+== Quickstart für das Projekt
+
+Auf Quarkus.io unter Quickstart ein neues Quarkus Projekt erstellen.
+
+Bei der Configuration wie üblich: +
+*Group:* at.htl +
+*Artifact:* qute-example (Projektname) +
+*Build Tool:* Maven +
+
+image:images/qute-extension.png[config]
+
+Der Nächste Schritt ist wichtig den Ohne einer Qute Extension gibt es auch kein Qute.
+
+image:images/qute-extension.png[extension]
+
+Wichtig ist es hier die RESTEasy Qute Extension auszuwählen.
+
+== Examples
+
+Um ein neues Projekt zu beginnen, können wir die Klasse ``SomePage.java``, welche von Quarkus erstellt wurde, löschen.
+
+=== Basics
+
+Um die Basics zu verstehen, erstellen wir eine Klasse ``HelloResource.java``.
+
+[source,java]
+----
+package at.htl;
+
+public class HelloResource {
+}
+----
+
+Um keine leere Klasse zu haben, fügen wir alles nötige ein, um einen Endpoint zu erstellen.
+
+[source,java]
+----
+
+
+package at.htl;
+
+import io.quarkus.qute.Template;
+import io.quarkus.qute.TemplateInstance;
+
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+
+@Path("hello")
+public class HelloResource {
+    @Inject
+    Template hello; // <1>
+
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public TemplateInstance get(@QueryParam("name") String name) {
+        return hello.data("name", name); // <2>
+    }
+}
+
+
+----
+
+<1> In unserem Beispiel verwenden wir ein Template mit dem namen hello.html. Es befindet sich wie jede andere Template in ``resources/templates/``.
+<2> ``hello.data()`` gibt eine neue instance der Template zurück, welche dann verwendet werden kann bevor es gerendert wird.
+
+Die html Seite hello.html sollte ungefähr so aussehen.
+
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1> Hello {name} </h1>
+</body>
+</html>
+----
+
+Hello {name} gibt dann bei der Seite, Hello + den Parameter der bei der URL mitgegeben wird, aus.
+
+Die Url sieht so aus:
+
+``http://localhost:8080/hello?name=dave``
+
+
+
+image:images/output-basic.png[output dave]
