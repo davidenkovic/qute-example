@@ -24,7 +24,7 @@ docker run --rm \
            -a rouge-theme=github \
            -a rouge-linenums-mode=inline \
            -a docinfo=shared \
-           -a imagesdir=images \
+           -a imagesdir=asciidocs/images \
            -a toc=left \
            -a toclevels=2 \
            -a sectanchors=true \
