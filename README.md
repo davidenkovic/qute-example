@@ -2,4 +2,4 @@
 
 ## GitHub Page
 
-[davidenkovic.github.io/qute-example](GH-Page)
+(davidenkovic.github.io/qute-example)[GH-Page]
