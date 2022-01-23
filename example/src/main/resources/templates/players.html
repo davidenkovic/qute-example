@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    We Have {players.size} Players!
+    <ul>
+        {#for player in players}
+            {#if player.injured is true}
+                <li><p>{player.name} is not allowed to play </p></li>
+            {#else }
+                <li><p>{player.name}</p></li>
+            {/if}
+
+        {/}
+    </ul>
+
+</body>
+</html>
