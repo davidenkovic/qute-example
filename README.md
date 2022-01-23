@@ -1,7 +1,13 @@
 # Qute Exapmle by David Ignjatovic
 
-## GitHub Page
+## GH Pages
 
-[GH-Page](https://davidenkovic.github.io/qute-example/)
+[Qute Example (GH Pages)](https://davidenkovic.github.io/qute-example/)
 
-## Presentation
+[Qute Slides (GH Pages)](https://davidenkovic.github.io/qute-slides/) 
+
+## GH Repos
+
+[Qute Example (Repo)](https://github.com/davidenkovic/qute-example/)
+
+[Qute Slides (Repo)](https://github.com/davidenkovic/qute-slides/) 
