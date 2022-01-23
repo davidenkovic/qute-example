@@ -9,7 +9,7 @@ Bei der Configuration wie üblich: +
 *Artifact:* qute-example (Projektname) +
 *Build Tool:* Maven +
 
-image:images/qute-extension.png[config]
+image:images/quarkus-config.png[config]
 
 Der Nächste Schritt ist wichtig den Ohne einer Qute Extension gibt es auch kein Qute.
 
