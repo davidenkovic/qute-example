@@ -1,4 +1,4 @@
-# Qute Exapmle by David Ignjatovic
+# Qute Exapmle 
 
 ## GH Pages
 
